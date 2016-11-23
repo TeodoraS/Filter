@@ -1,6 +1,7 @@
 import paramiko
 import cmd
-
+import untangle
+import os
 def ssh_connection():
     host = []
 #    host.append(raw_input('Insert server host:\t'))
@@ -15,8 +16,13 @@ def ssh_connection():
     stdin, stdout, stderr = client.exec_command('ls /data/samba/share/')
     print 'Ssh succesfull.'
     stdout = stdout.readlines()
-    client.close()
+#    client.close()
     print stdout
-    
-ssh_connection()
+    stdin, stdout, stderr = client.exec_command('cat /data/samba/share/BlackDuck/BlackDuck_Checkouts/test/common/foss.xml')
+    print stdout.readlines()
+    client.close()
+  
+#def parse_xml():
 
+ssh_connection()
+#parse_xml()

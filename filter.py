@@ -16,13 +16,11 @@ def ssh_connection():
     stdin, stdout, stderr = client.exec_command('ls /data/samba/share/')
     print 'Ssh succesfull.'
     stdout = stdout.readlines()
-#    client.close()
-    print stdout
-    stdin, stdout, stderr = client.exec_command('cat /data/samba/share/BlackDuck/BlackDuck_Checkouts/test/common/foss.xml')
-    print stdout.readlines()
     client.close()
+    print stdout
+
   
-#def parse_xml():
+
 
 ssh_connection()
-#parse_xml()
+

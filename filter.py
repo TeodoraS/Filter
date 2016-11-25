@@ -1,3 +1,5 @@
+#!/usr/bin/python
+import re
 import paramiko
 import cmd
 import untangle
@@ -20,7 +22,15 @@ def ssh_connection():
     print stdout
 
   
+#ssh_connection()
 
+#parsing paths
+dictionary = []
+inputf = open('E:/Python/filter/foss.xml')
+obj = inputf.readlines()
+pat = re.compile(r'(?:src=).*$')
+searchobj = filter(pat.search, obj)
 
-ssh_connection()
-
+print searchobj
+for elem in searchobj:
+    print elem
